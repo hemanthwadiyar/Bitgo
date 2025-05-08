@@ -4,7 +4,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
-import time
 
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
@@ -21,6 +20,7 @@ try:
     try:
         heading_element = driver.find_element(By.XPATH, heading_xpath)
         heading_text = heading_element.text.strip()
+        print(heading_text)
         expected_text = "25 of 2875 Transactions"
 
         if heading_text == expected_text:
